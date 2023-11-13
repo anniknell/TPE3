@@ -37,15 +37,17 @@
             $user = $userpass[0];
             $pass = $userpass[1];
 
-            $userdata = [ "name" => $user, "id" => 123, "role" => 'ADMIN' ]; // Llamar a la DB
+            $user = $this->model->getByUser($user);
 
-            if($user == "webadmin" && $pass == "admin") {
-                // Usuario es válido
-                
+            
+            if (isset($user)) {
+              if (password_verify($pass, $user->password)) {
+                $userdata = ["id" => $user->id, "usuario" => $user->usuario];
                 $token = $this->authHelper->createToken($userdata);
-                $this->view->response($token,200);
-            } else {
-                $this->view->response('El usuario o contraseña son incorrectos.', 401);
+                $this->view->response($token, 200);
+                return;
+              }
             }
+            $this->view->response('El usuario o contraseña son incorrectos.', 401);
+          }
         }
-    }
