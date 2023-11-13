@@ -5,7 +5,7 @@ TOKEN:
     Los datos deberan ser ingresados desde la seccion authorization de tipo Basic Auth. Al ingresarlos y enviar los datos, se obtendra el token, con el cual se debe ir al endpoint que requiera dicha autorización.
     Ejemplo: 
     Quiero intentar agregar un nuevo producto pero requiero de autorización para hacerlo. Voy a el endpoint indicado api/productos
-    y en la parte de authorization ingreso el tipo Bearer Token, e ingreso la palabra Bearer seguido de el token obtenido previamente.
+    y en la parte de authorization ingreso el tipo Bearer Token, e ingreso el token obtenido previamente.
 
 
 TABLA PRODUCTOS:
